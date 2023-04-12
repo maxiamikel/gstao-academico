@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestao Academico</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/7ca0a381a3.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header th:fragment="cabecalho">
+
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" th:href="@{/}">
+                <i class="fa-brands fa-centos" id="fa-centos"></i><i class="fa-solid fa-s"></i><i class="fa-solid fa-g"></i><i class="fa-solid fa-a"></i>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMobile">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navMobile" class="navbar-collapse collpse justify-content-end">
+                <a href="home.html" class="nav-item nav-link"><i class="fa-solid fa-house"></i> Home</a>
+                <a th:href="@{/inserirAluno}" class="nav-item nav-link"> <i class="fa-solid fa-user-plus"></i> Cadastrar</a>
+                <a href="buscar.hetm" class="nav-item nav-link"><i class="fa-solid fa-magnifying-glass"></i> Pesquisar</a>
+                <a href="sair.html" class="nav-item nav-link btn-danger">Sair</a>
+            </div>
+        </nav>
+    </header>
+
+
+    <footer th:fragment="rodape">
+        <div class="neo-footer">
+            <span>Todos os direitos reservados - 2020 &copy;. Amikel Maxi Celectin</span>
+            <p>https://www.youtube.com/watch?v=xNz2TKIIYgQ&list=PL0j7juv7l4HgSY7gNDzNQjgwEA5s4hzjx&index=4</p>
+        </div>
+    </footer>
+    <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

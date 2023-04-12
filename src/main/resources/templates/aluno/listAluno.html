@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Aluno</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/7ca0a381a3.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div th:replace="fragmentos/fragmentos :: cabecalho" style="margin-top: 20px;"></div>
+
+    <div class="container main-form">
+        <h4>Ultimos alunos</h4>
+        <hr>
+        <br>
+        <table class="table table-hover">
+            <thead>
+                <th scope="col">ID</th>
+                <th scope="col">NOME</th>
+                <th scope="col">CPF</th>
+                <th scope="col">MATRICULA</th>
+                <th scope="col">CURSO</th>
+                <th scope="col">TURNO</th>
+                <th scope="col">STATUS</th>
+                <th scope="col">OPCAO</th>
+            </thead>
+
+            <tbody>
+                <tr th:each="vetAlunos : ${alunos}">
+                    <td th:text="${vetAlunos.id}"></td>
+                    <td th:text="${vetAlunos.nome}"></td>
+                    <td th:text="${vetAlunos.cpf}"></td>
+                    <td th:text="${vetAlunos.matricula}"></td>
+                    <td th:text="${vetAlunos.curso}"></td>
+                    <td th:text="${vetAlunos.turno}"></td>
+                    <td th:text="${vetAlunos.status}"></td>
+                    <td>
+                        <a href="#" class="selecionar" title="Selecionar"><i class="fa-solid fa-square-check"></i></a>
+                        <a href="#" class="editar" title="Editar"> <i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="#" class="deletar" title="Deletar"><i class="fa-sharp fa-solid fa-trash"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+
+
+    </div>
+
+    <div th:replace="fragmentos/fragmentos :: rodape"></div>
+    <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

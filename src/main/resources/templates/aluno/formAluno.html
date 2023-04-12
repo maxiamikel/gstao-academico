@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Aluno</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/7ca0a381a3.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+
+    <div class="container main-form">
+        <h4>+ Novo aluno</h4>
+        <hr>
+        <br>
+
+        <form action="/criarAluno" method="post" th:object="${aluno}">
+            <div class="row">
+                <div class="col-md-6 form-group offset-md-3">
+                    <label for="nome" class="form-label">Nome do aluno</label>
+                    <input type="text" name="txtnome" placeholder="Ex: Amikel Maxi" th:field="*{nome}" class="form-control">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group offset-md-3">
+                    <label for="nome" class="form-label">CPF</label>
+                    <input type="text" name="txtcpf" placeholder="Ex: 000.999.000-99" th:field="*{cpf}" class="form-control">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group offset-md-3">
+                    <label for="nascimento" class="form-label">Data nascimento</label>
+                    <input type="date" name="txtnascimento" th:field="*{nascimento}" class="form-control">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group offset-md-3">
+                    <label for="genero" class="form-label">Selecione o Genero</label>
+                    <select class="form-control" name="genero" th:field="*{genero}">
+                        <option th:each="genero : ${T(com.maxi.sistemaAcademico.enums.Genero).values()}"
+                        th:value="${genero}" th:text="${genero}"></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group offset-md-3">
+                    <label for="nome" class="form-label">Matricula</label>
+                    <input type="text" name="txtmatricula" id="matricula" th:field="*{matricula}" class="form-control">
+                    <button class="btn btn-primary" style="margin-top: 12px;" onclick="gerarMatricula();" type="button">Gerar matricula</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group offset-md-3">
+                    <label for="nome" class="form-label">Selecione o curso</label>
+                    <select class="form-control" name="curso" th:field="*{curso}">
+                        <option th:each="curso : ${T(com.maxi.sistemaAcademico.enums.Curso).values()}"
+                        th:value="${curso}" th:text="${curso}"></option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6 form-group offset-md-3">
+                    <label for="nome" class="form-label">Selecione o status</label>
+                    <select class="form-control" name="status" th:field="*{status}">
+                        <option th:each="status : ${T(com.maxi.sistemaAcademico.enums.Status).values()}"
+                        th:value="${status}" th:text="${status}"></option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6 form-group offset-md-3">
+                    <label for="nome" class="form-label">Selecione o curso</label>
+                    <select class="form-control" name="turno" th:field="*{turno}">
+                        <option th:each="turno : ${T(com.maxi.sistemaAcademico.enums.Turno).values()}"
+                        th:value="${turno}" th:text="${turno}"></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row offset-md-5">
+                <button type="submit" class="btn btn-success">SALVAR</button> &nbsp;&nbsp;&nbsp;
+                <a type="button" href="#" class="btn btn-outline-primary">VOLTAR</a>
+            </div>
+
+        </form>
+    </div>
+
+    <div th:replace="fragmentos/fragmentos :: rodape"></div>
+    <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
