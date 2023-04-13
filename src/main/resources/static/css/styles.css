@@ -95,6 +95,8 @@
     color: #f1f1f1;
     text-align: center;
     padding: 14px;
+    margin: 0 auto;
+    bottom: 0;
 }
 
 #fa-centos {

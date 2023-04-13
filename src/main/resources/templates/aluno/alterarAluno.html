@@ -6,24 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image/x-icon" href="/img/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Aluno</title>
+    <title>Alterar Aluno</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/7ca0a381a3.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 
-<body>
+<body th:object="${aluno}">
     <div th:replace="fragmentos/fragmentos :: cabecalho"></div>
 
     <div class="container main-form">
-        <h4>+ Novo aluno</h4>
+        <h4>+ Alterar aluno </h4><span th:text="*{nome}"></span>
         <hr>
         <br>
 
-        <form action="/criarAluno" method="post" th:object="${aluno}">
+        <form action="/alterarAluno" method="post" th:object="${aluno}">
+            <input type="hidden" th:field="*{id}">
             <div class="row">
                 <div class="col-md-6 form-group offset-md-3">
                     <label for="nome" class="form-label">Nome do aluno</label>
@@ -34,14 +35,14 @@
             <div class="row">
                 <div class="col-md-6 form-group offset-md-3">
                     <label for="nome" class="form-label">CPF</label>
-                    <input type="text" name="txtcpf" placeholder="Ex: 000.999.000-99" th:field="*{cpf}" class="form-control">
+                    <input type="text" readonly="readonly" name="txtcpf" placeholder="Ex: 000.999.000-99" th:field="*{cpf}" class="form-control">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-6 form-group offset-md-3">
                     <label for="nascimento" class="form-label">Data nascimento</label>
-                    <input type="date" name="txtnascimento" th:field="*{nascimento}" class="form-control">
+                    <input type="text" name="txtnascimento" th:field="*{nascimento}" class="form-control" th:value="${nascimento}">
                 </div>
             </div>
 
@@ -59,7 +60,6 @@
                 <div class="col-md-6 form-group offset-md-3">
                     <label for="nome" class="form-label">Matricula</label>
                     <input type="text" name="txtmatricula" id="matricula" th:field="*{matricula}" class="form-control" readonly="true">
-                    <button class="btn btn-primary" style="margin-top: 12px;" onclick="gerarMatricula();" type="button">Gerar matricula</button>
                 </div>
             </div>
 
@@ -97,7 +97,7 @@
 
             <div class="row offset-md-5">
                 <button type="submit" class="btn btn-success">SALVAR</button> &nbsp;&nbsp;&nbsp;
-                <a type="button" href="#" class="btn btn-outline-primary">VOLTAR</a>
+                <a type="button" th:href="@{/aluno/listAluno}" class="btn btn-outline-primary">CANCELAR</a>
             </div>
 
         </form>

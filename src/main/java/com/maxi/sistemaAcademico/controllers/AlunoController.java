@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -41,5 +43,39 @@ public class AlunoController {
         List<Aluno> list = this.service.findAll();
         mv.addObject("alunos", list);
         return mv;
+    }
+
+    @GetMapping("/alterar/{id}")
+    public ModelAndView alterarAluno(@PathVariable Long id){
+        ModelAndView mv = new ModelAndView();
+        Aluno obj = service.findById(id);
+        mv.setViewName("aluno/alterarAluno");
+        mv.addObject("aluno", obj);
+        return mv;
+    }
+
+    @PostMapping("/alterarAluno")
+    public ModelAndView alterarAluno(Aluno obj){
+        ModelAndView mv = new ModelAndView();
+        service.creatr(obj);
+        mv.setViewName("redirect:/aluno/listAluno");
+        return mv;
+
+    }
+
+    @GetMapping("/deletar/{id}")
+    public String deletar(@PathVariable Long id){
+        this.service.delete(id);
+        return "redirect:/aluno/listAluno";
+    }
+
+    @GetMapping("/aluno/{cpf}")
+    public ModelAndView findByCpf(@PathVariable String cpf){
+        ModelAndView mv = new ModelAndView();
+        Aluno aluno = this.service.findByCpf(cpf);
+        mv.setViewName("aluno/detalhe");
+        mv.addObject("aluno", aluno);
+        return mv;
+
     }
 }

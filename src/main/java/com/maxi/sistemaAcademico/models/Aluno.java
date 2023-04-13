@@ -17,6 +17,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="alunos")
@@ -27,13 +30,18 @@ public class Aluno {
     private Long id;
 
     @Column(name = "nome")
+    @Size(min = 5, max = 40, message = "Ingressa o nome completo")
+    @NotBlank(message = "O nome é obligatorio")
     private String nome;
 
     @Column(name="cpf")
+    @Size(min = 11, max = 14, message = "Informe um CPF válido. Ex: 000.000.000-00")
+    @NotBlank(message = "Informe um CPF válido. Ex: 000.000.000-00")
     private String cpf;
 
     @Column(name="curso")
     @Enumerated(EnumType.STRING)
+    @NotNull(message = "O curso não pode ser vazio")
     private Curso curso;
 
     @Column(name="status")
