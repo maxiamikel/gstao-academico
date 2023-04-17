@@ -35,7 +35,7 @@ public class Aluno {
     private String nome;
 
     @Column(name="cpf")
-    @Size(min = 11, max = 14, message = "Informe um CPF válido. Ex: 000.000.000-00")
+    @Size(max = 14, min = 14)
     @NotBlank(message = "Informe um CPF válido. Ex: 000.000.000-00")
     private String cpf;
 
@@ -46,21 +46,26 @@ public class Aluno {
 
     @Column(name="status")
     @Enumerated(EnumType.STRING)
+    @NotNull(message = "O status não pode ser vazio")
     private Status status;
 
     @Column(name="matricula")
+    @NotBlank(message = "Clique no botão GERAR para gerar a matricula")
     private String matricula;
 
     @Column(name="turno")
     @Enumerated(EnumType.STRING)
+    @NotNull(message = "O turno não pode ser vazio")
     private Turno turno;
 
     @Column(name = "genero")
     @Enumerated(EnumType.STRING)
+    @NotNull(message = "O genero não pode ser vazio")
     private Genero genero;
 
     @Column(name = "naccimento")
     @Temporal(TemporalType.DATE)
+    @NotNull(message = "A data de nascimento não pode ser vazio")
     private LocalDate nascimento;
 
     @Column(name = "dataCadastro")

@@ -26,6 +26,9 @@
         <form action="/criarAluno" method="post" th:object="${aluno}">
             <div class="row">
                 <div class="col-md-6 form-group offset-md-3">
+                    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nome')}">
+                        <label class="validation-message" th:errors="*{nome}"></label>
+                    </div>
                     <label for="nome" class="form-label">Nome do aluno</label>
                     <input type="text" name="txtnome" placeholder="Ex: Amikel Maxi" th:field="*{nome}" class="form-control">
                 </div>
@@ -33,6 +36,9 @@
 
             <div class="row">
                 <div class="col-md-6 form-group offset-md-3">
+                    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('cpf')}">
+                        <label class="validation-message" th:errors="*{cpf}"></label>
+                    </div>
                     <label for="nome" class="form-label">CPF</label>
                     <input type="text" name="txtcpf" placeholder="Ex: 000.999.000-99" th:field="*{cpf}" class="form-control">
                 </div>
@@ -40,6 +46,9 @@
 
             <div class="row">
                 <div class="col-md-6 form-group offset-md-3">
+                    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nascimento')}">
+                        <label class="validation-message" th:errors="*{nascimento}"></label>
+                    </div>
                     <label for="nascimento" class="form-label">Data nascimento</label>
                     <input type="date" name="txtnascimento" th:field="*{nascimento}" class="form-control">
                 </div>
@@ -47,6 +56,9 @@
 
             <div class="row">
                 <div class="col-md-6 form-group offset-md-3">
+                    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('genero')}">
+                        <label class="validation-message" th:errors="*{genero}"></label>
+                    </div>
                     <label for="genero" class="form-label">Selecione o Genero</label>
                     <select class="form-control" name="genero" th:field="*{genero}">
                         <option th:each="genero : ${T(com.maxi.sistemaAcademico.enums.Genero).values()}"
@@ -57,6 +69,9 @@
 
             <div class="row">
                 <div class="col-md-6 form-group offset-md-3">
+                    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('matricula')}">
+                        <label class="validation-message" th:errors="*{matricula}"></label>
+                    </div>
                     <label for="nome" class="form-label">Matricula</label>
                     <input type="text" name="txtmatricula" id="matricula" th:field="*{matricula}" class="form-control" readonly="true">
                     <button class="btn btn-primary" style="margin-top: 12px;" onclick="gerarMatricula();" type="button">Gerar matricula</button>
@@ -65,6 +80,9 @@
 
             <div class="row">
                 <div class="col-md-6 form-group offset-md-3">
+                    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('curso')}">
+                        <label class="validation-message" th:errors="*{curso}"></label>
+                    </div>
                     <label for="nome" class="form-label">Selecione o curso</label>
                     <select class="form-control" name="curso" th:field="*{curso}">
                         <option th:each="curso : ${T(com.maxi.sistemaAcademico.enums.Curso).values()}"
@@ -76,6 +94,9 @@
 
             <div class="row">
                 <div class="col-md-6 form-group offset-md-3">
+                    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('status')}">
+                        <label class="validation-message" th:errors="*{status}"></label>
+                    </div>
                     <label for="nome" class="form-label">Selecione o status</label>
                     <select class="form-control" name="status" th:field="*{status}">
                         <option th:each="status : ${T(com.maxi.sistemaAcademico.enums.Status).values()}"
@@ -87,7 +108,10 @@
 
             <div class="row">
                 <div class="col-md-6 form-group offset-md-3">
-                    <label for="nome" class="form-label">Selecione o curso</label>
+                    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('turno')}">
+                        <label class="validation-message" th:errors="*{turno}"></label>
+                    </div>
+                    <label for="nome" class="form-label">Selecione o turno</label>
                     <select class="form-control" name="turno" th:field="*{turno}">
                         <option th:each="turno : ${T(com.maxi.sistemaAcademico.enums.Turno).values()}"
                         th:value="${turno}" th:text="${turno}"></option>
@@ -96,8 +120,8 @@
             </div>
 
             <div class="row offset-md-5">
-                <button type="submit" class="btn btn-success">SALVAR</button> &nbsp;&nbsp;&nbsp;
-                <a type="button" href="#" class="btn btn-outline-primary">VOLTAR</a>
+                <button type="submit" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i> SALVAR</button> &nbsp;&nbsp;&nbsp;
+                <a type="button" href="#" class="btn btn-outline-primary"><i class="fa-solid fa-circle-xmark"></i> CANCELAR</a>
             </div>
 
         </form>

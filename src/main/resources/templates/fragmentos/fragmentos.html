@@ -26,10 +26,11 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div id="navMobile" class="navbar-collapse collpse justify-content-end">
-                <a href="home.html" class="nav-item nav-link"><i class="fa-solid fa-house"></i> Home</a>
+                <a th:href="@{/aluno/listAluno}" class="nav-item nav-link"><i class="fa-solid fa-house"></i> Home</a>
                 <a th:href="@{/inserirAluno}" class="nav-item nav-link"> <i class="fa-solid fa-user-plus"></i> Cadastrar</a>
-                <a href="buscar.hetm" class="nav-item nav-link"><i class="fa-solid fa-magnifying-glass"></i> Pesquisar</a>
-                <a href="sair.html" class="nav-item nav-link btn-danger">Sair</a>
+                <a th:href="@{/aluno/listAluno}" class="nav-item nav-link"><i class="fa-solid fa-users"></i> Lista</a>
+                <a th:href="@{/buscar}" class="nav-item nav-link"><i class="fa-solid fa-magnifying-glass"></i> Filtrar</a>
+                <a th:href="@{/}" class="nav-item nav-link btn-danger">Sair</a>
             </div>
         </nav>
     </header>

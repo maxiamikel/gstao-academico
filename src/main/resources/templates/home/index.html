@@ -27,16 +27,44 @@
 
             <div class="botons">
                 <div class="wm">
-                    <div class="btn btn-principal">Cadastrar Aluno</div>
+                    <div class="btn btn-principal"> <a th:href="@{/inserirAluno}"> Cadastrar Aluno</a></div>
                 </div>
                 <div class="wm">
-                    <div class="btn btn-principal">Pesquisar Aluno</div>
+                    <div class="btn btn-principal"><a data-toggle="modal" data-target="#modal-peaquisa" href="#"> Pesquisar Aluno </a> </div>
                 </div>
                 <div class="clear"></div>
             </div>
 
         </div>
     </section>
+
+    <div class="modal fade" id="modal-peaquisa">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Peaquisa de aluno</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+
+                <form action="/pesquisar-aluno" method="post" th:object="${aluno}">
+                    <div class="modal-body">
+                        <input type="text" th:field="*{cpf}" placeholder="Dicige o CPF do aluno" class="form-control">
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" type="button" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-success">Pesquisar</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
     <div th:replace="fragmentos/fragmentos :: rodape"></div>
     <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>

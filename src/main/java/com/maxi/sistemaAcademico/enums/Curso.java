@@ -11,4 +11,8 @@ public enum Curso {
     private Curso(String curso){
         this.curso = curso;
     }
+
+    public String getCurso() {
+        return curso;
+    }
 }

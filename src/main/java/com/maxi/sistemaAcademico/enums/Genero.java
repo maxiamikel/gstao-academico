@@ -11,5 +11,8 @@ public enum Genero {
         this.genero = genero;
     }
 
+    public String getGenero() {
+        return genero;
+    }
 
 }

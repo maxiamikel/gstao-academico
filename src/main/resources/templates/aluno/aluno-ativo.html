@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image/x-icon" href="/img/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de alunos cadastrados</title>
+    <title>Alunos ativos</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/7ca0a381a3.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
     <div th:replace="fragmentos/fragmentos :: cabecalho" style="margin-top: 20px;"></div>
 
     <div class="container main-form">
-        <h4>Ultimos alunos</h4>
+        <h4>Alunos ativos</h4>
         <hr>
         <br>
         <table class="table table-hover">
@@ -35,7 +35,7 @@
             </thead>
 
             <tbody>
-                <tr th:each="vetAlunos : ${alunos}">
+                <tr th:each="vetAlunos : ${ativos}">
                     <td th:text="${vetAlunos.id}"></td>
                     <td th:text="${vetAlunos.nome}"></td>
                     <td th:text="${vetAlunos.cpf}"></td>
@@ -45,7 +45,7 @@
                     <td th:text="${vetAlunos.status}"></td>
                     <td>
                         <a th:href="@{/aluno/{cpf}(cpf=${vetAlunos.cpf})}" class="selecionar" title="Selecionar"><i class="fa-solid fa-square-check"></i></a>
-                        <a th:href="@{/alterar/{id}(id=${vetAlunos.id})}" class="editar" title="Editar"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a th:href="@{/alterar/{id}(id=${vetAlunos.id})}" class="editar" title="Editar"> <i class="fa-solid fa-pen-to-square"></i></a>
                         <a th:href="@{/deletar/{id}(id=${vetAlunos.id})}" class="deletar" title="Deletar"><i class="fa-sharp fa-solid fa-trash"></i></a>
                     </td>
                 </tr>

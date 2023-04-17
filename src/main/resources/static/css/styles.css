@@ -124,6 +124,15 @@
     color: #ff0000;
 }
 
+.card {
+    width: 30%;
+}
+
+.mb-10 {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
 @media only screen and (max-width: 600px) {
     .neo-container {
         max-width: 1280px;
