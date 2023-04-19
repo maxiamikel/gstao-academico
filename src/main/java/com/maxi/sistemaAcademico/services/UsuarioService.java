@@ -23,10 +23,10 @@ public class UsuarioService {
 
     public Usuario criarUsuario(Usuario obj) throws Exception{
         List<Usuario> userEmails = new ArrayList<>();
-        List<Usuario> userLogins = new ArrayList<>();
+        //List<Usuario> userLogins = new ArrayList<>();
 
         userEmails = this.repo.findByEmail(obj.getEmail());
-        userLogins = this.repo.findByLogin(obj.getLogin());
+        //userLogins = this.repo.findByLogin(obj.getLogin());
 
          if(userEmails.size() != 0){
              throw new EmailExisteException("Ja existe esse email cadastrado para: "+ obj.getEmail() +" "+ obj.getLogin());
