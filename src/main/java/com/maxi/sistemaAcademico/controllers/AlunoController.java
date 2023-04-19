@@ -9,7 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.maxi.sistemaAcademico.models.Aluno;
@@ -82,7 +81,7 @@ public class AlunoController {
     @GetMapping("/aluno/{cpf}")
     public ModelAndView findByCpf(@PathVariable String cpf){
         ModelAndView mv = new ModelAndView();
-        Aluno aluno = this.service.findByCpf(cpf);
+        List<Aluno> aluno = this.service.findByCpf(cpf);
         mv.setViewName("aluno/detalhe");
         mv.addObject("aluno", aluno);
         return mv;

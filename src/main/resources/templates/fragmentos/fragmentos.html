@@ -16,6 +16,7 @@
 </head>
 
 <body>
+
     <header th:fragment="cabecalho">
 
         <nav class="navbar navbar-expand-lg navbar-dark">
@@ -30,7 +31,9 @@
                 <a th:href="@{/inserirAluno}" class="nav-item nav-link"> <i class="fa-solid fa-user-plus"></i> Cadastrar</a>
                 <a th:href="@{/aluno/listAluno}" class="nav-item nav-link"><i class="fa-solid fa-users"></i> Lista</a>
                 <a th:href="@{/buscar}" class="nav-item nav-link"><i class="fa-solid fa-magnifying-glass"></i> Filtrar</a>
-                <a th:href="@{/}" class="nav-item nav-link btn-danger">Sair</a>
+                <form action="/logout" method="post">
+                    <button type="submit" class="nav-item nav-link btn-danger">Sair</button>
+                </form>
             </div>
         </nav>
     </header>

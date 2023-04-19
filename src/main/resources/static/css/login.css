@@ -1,0 +1,51 @@
+.login-form {
+    min-height: 800px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    background-image: url("/img/fundo.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover !important;
+}
+
+.main-div {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    margin: 0 auto;
+    max-width: 50%;
+    padding: 45px 65px;
+}
+
+.form-control {
+    border-radius: 6px;
+    background-color: #f4f4f4;
+    font-size: 15px;
+    height: 50px;
+    line-height: 45px;
+    border: solid 2px #ccc;
+}
+
+.form-group {
+    margin: 10px;
+}
+
+.btn.btn-primary {
+    background-color: rgba(0, 0, 0, 0.9);
+    font-size: 1em;
+    padding: 0;
+    height: 50px;
+    margin: 10px;
+    width: 100%;
+}
+
+.btn.btn-info {
+    background-color: #FF1493;
+    font-size: 1em;
+    padding: 0;
+    height: 50px;
+    width: 50%;
+}
